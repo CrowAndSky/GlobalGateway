@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>GlobalGateway POC</title>
+</head>
+<body>
+<style type="text/css">
+html, body, div, span, section, ul, li, h1, h2, h3, h4, h5 {
+  box-sizing: border-box;
+  color: #222;
+  font-family: "Kozuka Gothic Pro";
+  font-weight: lighter;
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  list-style: none;
+}
+.svg-defs {
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+body {
+	background-color: #121212;
+}
+
+#wrapper {
+  background-color: #232323;
+  height: 100vh;
+  margin: 0 auto;
+  max-height: 614px;
+  max-width: 307px;
+  min-height: 550px;
+	min-width: 275px;
+  padding: 0;
+	position: relative;
+  width: 100%;
+}
+
+.segment {
+  height: 10%;
+  overflow: hidden;
+  position: relative;
+  transition: height 1s;
+  width: 100%;
+}
+
+.segment.active {
+  height: 50%;
+}
+
+.segment-wrapper,
+.segment-svg,
+.segment-img {
+  height: 341px;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 341px;
+  z-index: 2;
+}
+
+.segment-wrapper {
+  position: relative;
+  transform-origin: center center 0px;
+  transform: translate3d( -5%, -5%, 0px) scale3d( 0.9, 0.9, 1 );
+  transition: transform 1s;
+}
+
+.active .segment-wrapper {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+}
+
+.segment-link {
+  color: #fff;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  z-index: 9;
+}
+
+.segment-svg {
+  position: absolute;
+  z-index: 1;
+}
+
+.segment-img {
+  left: 0;
+  opacity: 1;
+  top: 0;
+  transition: opacity 1s;
+}
+
+}
+</style>
+
+<svg class="svg-defs" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet" height="100%" width="100%">
+  <defs>
+    <filter id="grayscale__filter">
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="blue__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#2345ef" result="tintHue" />
+      <feBlend mode="multiply" in="tintHue" in2="SourceGraphic" result="darkenedSample" />
+    </filter>
+    <filter id="yellow__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#deab45" result="tintHue" />
+      <feBlend mode="multiply" in="tintHue" in2="SourceGraphic" result="darkenedSample" />
+    </filter>
+    <filter id="red__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#fe4556" result="tintHue" />
+      <feBlend mode="multiply" in="tintHue" in2="SourceGraphic" result="darkenedSample" />
+    </filter>
+    <filter id="green__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#34fe45" result="tintHue" />
+      <feBlend mode="multiply" in="tintHue" in2="SourceGraphic" result="darkenedSample" />
+    </filter>
+  </defs>
+</svg>
+
+  <ul id="wrapper">
+    <li class="segment active">
+      <a class="segment-link" href="#">w we weweew </a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-paint-stores-group-corrected.jpg" filter="url(#blue__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-paint-stores-group-corrected.jpg" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">w we weweew </a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-protective-marines.png" filter="url(#red__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <!-- <svg class="segment-svg"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#segmentImages"></use></svg> -->
+        <img class="segment-img" src="./images/sw-img-gg-protective-marines.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">weweew </a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-product-finishes" filter="url(#yellow__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-product-finishes.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">weweew </a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-automotive.png" filter="url(#blue__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-automotive.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">weweew </a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-aerospace.png" filter="url(#green__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-aerospace.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">weweew </a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-about-us.png" filter="url(#blue__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-about-us.png" />
+      </div>
+    </li>
+  </ul>
+
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+  $(document).ready( function(){
+    $( '.segment-img' ).click( function( event ){
+      $( '.active' ).removeClass( 'active' );
+      $( event.target ).closest( '.segment' ).addClass( 'active' );
+    })
+  });
+</script>
+
+<!--
+
+/* ############### TO DO:  ###############
+SHORT::
+
+
+
+MEDIUM::
+############### */
+
+
+------------------ ### NOTES ### ------------------
+
+@keyframes pan-scene {
+  0 {
+      transform: translate3d(0px, 0px, 0px);
+  }
+  50% {
+      transform: translate3d(-10vw, -100vh, 0px);
+  }
+  100% {
+      transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+<feColorMatrix in="SourceGraphic" type="matrix" values=".33 .33 .33 0 0
+        .33 .33 .33 0 0
+        .33 .33 .33 0 0
+        0 0 0 1 0"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values="1.2 0 0 0 -0.2
+        0 1.2 0 0 -0.2
+        0 0 1.2 0 -0.2
+        0 0 0 1 0"/>
+
+-->
+</body>
+</html>
