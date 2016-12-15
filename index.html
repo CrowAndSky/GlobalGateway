@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>GlobalGateway POC</title>
+</head>
+<body>
+<style type="text/css">
+html, body, div, span, section, ul, li, h1, h2, h3, h4, h5 {
+  box-sizing: border-box;
+  color: #222;
+  font-family: Tahoma, Arial;
+  font-weight: lighter;
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  list-style: none;
+}
+.svg-defs {
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+body {
+	background-color: #121212;
+}
+#wrapper {
+  background-color: #000;
+  height: 100vh;
+  margin: 0 auto;
+  max-height: 546px;
+  max-width: 273px;
+  min-height: 546px;
+	min-width: 273px;
+  padding: 0;
+	position: relative;
+  width: 100%;
+}
+.segment {
+  height: 10%;
+  overflow: hidden;
+  position: relative;
+  transition: height 0.5s;
+  width: 100%;
+}
+.segment-wrapper,
+.segment-svg,
+.segment-img {
+  height: 341px;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 341px;
+  z-index: 2;
+}
+
+.segment-wrapper {
+  position: relative;
+  transform-origin: center center 0px;
+  transform: translate3d(-20%, -45%, 0px) scale3d(1, 1, 1);
+  transition: transform 0.5s;
+}
+
+.active .segment-wrapper {
+  transform: translate3d( -10%, -10%, 0px) scale3d( 0.8, 0.8, 1 );
+}
+
+.segment-link {
+  background-image: linear-gradient( rgba( 0, 0, 0, 0.5), rgba( 0, 0, 0, 0) 50% );
+  color: #ddd;
+  display: inline-block;
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  text-decoration: none;
+  text-shadow: 0px 2px 2px rgba(0,0,0,0.4);
+  transition: color 0.5s;
+  width: 100%;
+  z-index: 9;
+}
+
+.segment-svg {
+  position: absolute;
+  z-index: 1;
+}
+
+.segment-img {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.segment.active {
+  height: 50%;
+}
+
+.active .segment-img {
+  opacity: 1;
+}
+
+.active .segment-link {
+  color: #fff;
+}
+
+}
+</style>
+
+<svg class="svg-defs" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet" height="100%" width="100%">
+  <defs>
+    <filter id="grayscale__filter">
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="pastelblue__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#7DB8CA" result="tintHue" />
+      <feColorMatrix in="SourceGraphic" out="greyscaleImage"
+        type="saturate"
+        values="0" />
+      <feBlend mode="multiply" in="tintHue" in2="greyscaleImage" result="darkenedSample" />
+    </filter>
+    <filter id="pink__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#F9a895" result="tintHue" />  <!-- F4B9A2 -->
+      <feColorMatrix in="SourceGraphic" out="greyscaleImage"
+        type="saturate"
+        values="0" />
+      <feBlend mode="multiply" in="tintHue" in2="greyscaleImage" result="darkenedSample" />
+    </filter>
+    <filter id="yellow__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#D0a34C" result="tintHue" />
+      <!-- EEDD8B -->
+      <feColorMatrix in="SourceGraphic" out="greyscaleImage"
+        type="saturate"
+        values="0" />
+      <feBlend mode="multiply" in="tintHue" in2="greyscaleImage" result="darkenedSample" />
+    </filter>
+    <filter id="lavender__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#bDC0C1" result="tintHue" />
+      <feColorMatrix in="SourceGraphic" out="greyscaleImage"
+        type="saturate"
+        values="0" />
+      <feBlend mode="multiply" in="tintHue" in2="greyscaleImage" result="darkenedSample" />
+    </filter>
+    <filter id="blue__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#8ED3FF" result="tintHue" />  <!-- A0D4E8 -->
+      <feColorMatrix in="SourceGraphic" out="greyscaleImage"
+        type="saturate"
+        values="0" />
+      <feBlend mode="multiply" in="tintHue" in2="greyscaleImage" result="darkenedSample" />
+    </filter>
+    <filter id="green__filter">
+      <feFlood id="stain-sample__filter--tint" flood-color="#91B151" result="tintHue" />  <!-- B4A523 -->
+      <feColorMatrix in="SourceGraphic" out="greyscaleImage"
+        type="saturate"
+        values="0" />
+      <feBlend mode="multiply" in="tintHue" in2="greyscaleImage" result="darkenedSample" />
+    </filter>
+  </defs>
+</svg>
+
+  <ul id="wrapper">
+    <li class="segment">
+      <a class="segment-link" href="#">Paints, Stains, Colors & Supplies</a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-paint-stores-group-corrected.jpg" filter="url(#pastelblue__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-paint-stores-group-corrected.jpg" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">Protective & Marine Finishes</a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-protective-marines.png" filter="url(#pink__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-protective-marines.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">Product Finishes</a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-product-finishes.png" filter="url(#yellow__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-product-finishes.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">Automotive Finishes</a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-automotive.png" filter="url(#green__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-automotive.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">Aerospace Finishes</a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-aerospace.png" filter="url(#lavender__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-aerospace.png" />
+      </div>
+    </li>
+
+    <li class="segment">
+      <a class="segment-link" href="#">About Us</a>
+      <div class="segment-wrapper">
+        <svg class="segment-svg">
+          <image xlink:href="./images/sw-img-gg-about-us.png" filter="url(#blue__filter)" x="0" y="0" height="100%" width="100%" />
+        </svg>
+        <img class="segment-img" src="./images/sw-img-gg-about-us.png" />
+      </div>
+    </li>
+  </ul>
+
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+  $(document).ready( function(){
+    $( '.segment-img' ).click( function( event ){
+      $( '.active' ).removeClass( 'active' );
+      $( event.target ).closest( '.segment' ).addClass( 'active' );
+    });
+
+    var $segments = $( '.segment' ),
+      x = 0,
+      pauseAnimation = false,
+      currentIndex = 0,
+      updateDom = function() {
+        segmentTimeout = window.setTimeout( function() {
+          if ( !pauseAnimation ) {
+            if ( currentIndex === 5 ) {
+              $segments.eq( 5 ).removeClass( 'active' );
+              currentIndex = 0;
+            } else {
+              $segments.eq( currentIndex ).removeClass( 'active' );
+              currentIndex ++;
+            }
+            $segments.eq( currentIndex ).addClass( 'active' );
+            updateDom();
+          }
+        }, 2000 );
+      };
+
+    $segments.eq( 0 ).addClass( 'active' );
+    updateDom();
+
+  });
+</script>
+
+<!--
+
+/* ############### TO DO:  ###############
+SHORT::
+
+
+
+MEDIUM::
+############### */
+
+
+<feColorMatrix
+        type="matrix"
+        values="0.953125   0   0   0   0
+                0   0.72265625   0   0   0
+                0   0   0.6328125   0   0
+                0   0   0   1   0 "/>
+
+------------------ ### NOTES ### ------------------
+
+@keyframes pan-scene {
+  0 {
+      transform: translate3d(0px, 0px, 0px);
+  }
+  50% {
+      transform: translate3d(-10vw, -100vh, 0px);
+  }
+  100% {
+      transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+<rect x="-1%" y="-1%%" width="101%" height="100%" fill="url(#grad)" />
+
+<feColorMatrix in="SourceGraphic" type="matrix" values=".33 .33 .33 0 0
+        .33 .33 .33 0 0
+        .33 .33 .33 0 0
+        0 0 0 1 0"/>
+      <feColorMatrix in="SourceGraphic" type="matrix" values="1.2 0 0 0 -0.2
+        0 1.2 0 0 -0.2
+        0 0 1.2 0 -0.2
+        0 0 0 1 0"/>
+
+
+<linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
+    </linearGradient>
+
+
+-->
+</body>
+</html>
